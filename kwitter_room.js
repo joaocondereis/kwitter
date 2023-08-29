@@ -25,7 +25,7 @@ document.getElementById("user_name").innerHTML = "Bem-vindo(a), " + user_name + 
 function addRoom() {
     Room_name = document.getElementById("room_name").value;
 
-    firebase.databaseURL().ref("/").child(Room_name).update({
+    firebase.database().ref("/").child(Room_name).update({
         purpose: "adicionando nome da sala"
     });
 
@@ -59,4 +59,11 @@ function redirectToRoomName(name) {
     localStorage.setItem("room_name", name);
     window.location = "kwitter_page.html";
 }
+
+function logout(){
+    localStorage.removeItem("user_name");
+    localStorage.removeItem("room_name");
+    window.location = "index.html";
+}
+
 
